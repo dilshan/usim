@@ -78,7 +78,7 @@ void dumpCPUReg()
     // Dump Special function register values.
     drawSeperator("SFR");
     printMemEntry4(STR_INDF, INDF, STR_TMR0, TMR0, STR_PCL, PCL, STR_FSR, FSR);
-    printMemEntry4(STR_PORTA, PORTA, STR_PORTB, PORTB, STR_EEDATA, EEDATA, STR_EEADR, EEADR);    
+    printMemEntry4(STR_PORTA, GPIO_PORTA, STR_PORTB, GPIO_PORTB, STR_EEDATA, EEDATA, STR_EEADR, EEADR);    
     printMemEntry4(STR_PCLATH, PCLATH, STR_INTCON, INTCON, STR_OPTION_REG, OPTION_REG, STR_TRISA, TRISA);
     printMemEntry3(STR_TRISB, TRISB, STR_EECON1, EECON1, STR_EECON2, EECON2);
     drawSeperator("");

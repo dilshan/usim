@@ -38,8 +38,16 @@ extern VMCPU cpu;
 
 #define CHK_INSTRUCTION(wd, m, ins) ((wd & m) == ins)
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 unsigned short fetchInstruction(unsigned short ins);
 void resetProcessor();
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* VMCPU_H */
 

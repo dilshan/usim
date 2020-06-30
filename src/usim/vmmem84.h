@@ -59,8 +59,8 @@ union DATA_MEM
         unsigned char PCL0;
         unsigned char STATUS0;
         unsigned char FSR0;
-        unsigned char PORTA;
-        unsigned char PORTB;
+        unsigned char GPIO_PORTA;
+        unsigned char GPIO_PORTB;
         
         // Reserved cell.
         unsigned char R00;
@@ -129,8 +129,8 @@ extern union DATA_MEM dataMem;
 #define INDF        dataMem.sfr.INDF0
 
 #define TMR0        dataMem.sfr.TMR0
-#define PORTA       dataMem.sfr.PORTA
-#define PORTB       dataMem.sfr.PORTB
+#define GPIO_PORTA  dataMem.sfr.GPIO_PORTA
+#define GPIO_PORTB  dataMem.sfr.GPIO_PORTB
 #define TRISA       dataMem.sfr.TRISA
 #define TRISB       dataMem.sfr.TRISB
 #define EEDATA      dataMem.sfr.EEDATA

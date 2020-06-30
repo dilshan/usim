@@ -119,8 +119,8 @@ static inline void resetDataMem()
     
     TMR0 = TMR0_RESET;
     
-    PORTA = PORTA_RESET;
-    PORTB = PORTB_RESET;
+    GPIO_PORTA = PORTA_RESET;
+    GPIO_PORTB = PORTB_RESET;
     TRISA = TRISA_RESET;
     TRISB = TRISB_RESET;
     
