@@ -1,8 +1,9 @@
-#define _DEBUG_LOG
+#include "buildconfig.h"
 
 #include <SD.h>
 
-#include "platformsys.h"
+#include "arduinoMega2560.h"
+#include "arduino-mega2560-usim.h"
 #include "terminal.h"
 
 #include "vmcpu.h"

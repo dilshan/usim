@@ -16,9 +16,15 @@
 // limitations under the License.
 //------------------------------------------------------------------------------
 
+#include "buildconfig.h"
+
 #include "vmcpu.h"
 #include "vmmem84.h"
 #include "vmcpuinst.h"
+
+#if _PLATFORM == ARDUINO_MEGA_2560  
+#include "arduinoMega2560.h"
+#endif
 
 union DATA_MEM dataMem;
 VMCPU cpu;
@@ -58,7 +64,11 @@ static inline unsigned char sfrDirectAddr(unsigned char addr)
 
 static inline unsigned char getSfrValue(unsigned char addr)
 {
+#if _PLATFORM == ARDUINO_MEGA_2560  
+    return getHardwareRegValue(addr, dataMem.map[addr]);
+#else    
     return dataMem.map[addr];
+#endif
 }
 
 static inline void setSfrValue(unsigned char addr, unsigned char val)
@@ -95,8 +105,13 @@ static inline void setSfrValue(unsigned char addr, unsigned char val)
         dataMem.sfr.PCLATH1 = PCLATH = val;
     }
     else
-    {
+    {   
         dataMem.map[addr] = val;
+
+#if _PLATFORM == ARDUINO_MEGA_2560
+        setHardwareRegValue(addr, val);
+#endif
+
     }
 }
 
@@ -121,8 +136,8 @@ static inline void resetDataMem()
     
     GPIO_PORTA = PORTA_RESET;
     GPIO_PORTB = PORTB_RESET;
-    TRISA = TRISA_RESET;
-    TRISB = TRISB_RESET;
+    GPIO_TRISA = TRISA_RESET;
+    GPIO_TRISB = TRISB_RESET;
     
     EEDATA = EEDATA_RESET;
     EEADR = EEADR_RESET;

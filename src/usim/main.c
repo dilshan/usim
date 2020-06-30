@@ -16,6 +16,8 @@
 // limitations under the License.
 //------------------------------------------------------------------------------
 
+#include "buildconfig.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 

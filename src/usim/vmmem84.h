@@ -46,6 +46,8 @@
 
 #define ADDR_PORTA  0x05
 #define ADDR_PORTB  0x06
+#define ADDR_TRISA  0x85
+#define ADDR_TRISB  0x86
 
 union DATA_MEM
 {
@@ -84,8 +86,8 @@ union DATA_MEM
         unsigned char PCL1;
         unsigned char STATUS1;
         unsigned char FSR1;
-        unsigned char TRISA;
-        unsigned char TRISB;
+        unsigned char GPIO_TRISA;
+        unsigned char GPIO_TRISB;
         
         // Reserved cell.
         unsigned char R10;
@@ -131,8 +133,8 @@ extern union DATA_MEM dataMem;
 #define TMR0        dataMem.sfr.TMR0
 #define GPIO_PORTA  dataMem.sfr.GPIO_PORTA
 #define GPIO_PORTB  dataMem.sfr.GPIO_PORTB
-#define TRISA       dataMem.sfr.TRISA
-#define TRISB       dataMem.sfr.TRISB
+#define GPIO_TRISA  dataMem.sfr.GPIO_TRISA
+#define GPIO_TRISB  dataMem.sfr.GPIO_TRISB
 #define EEDATA      dataMem.sfr.EEDATA
 #define EEADR       dataMem.sfr.EEADR
 #define OPTION_REG  dataMem.sfr.OPTION_REG

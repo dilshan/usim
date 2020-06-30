@@ -1,0 +1,7 @@
+#ifndef BUILD_DEFINITIONS_H
+#define BUILD_DEFINITIONS_H
+
+#define PC_EMULATION        10
+#define ARDUINO_MEGA_2560   20
+
+#endif /* BUILD_DEFINITIONS_H */
