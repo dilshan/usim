@@ -1,0 +1,37 @@
+| Mnemonics           | Byte Code                   | Operand Op Code       | Operand Mask               | Operand Mask Code     | USim Support
+|---------------------|-----------------------------|-----------------------|----------------------------|-----------------------|----------------
+| ADDWF               | 00 0111 dfff ffff           | 0700                  | XX XXXX ---- ----          | 3F00                  | Yes
+| ANDWF               | 00 0101 dfff ffff           | 0500                  | XX XXXX ---- ----          | 3F00                  | Yes
+| CLRF                | 00 0001 lfff ffff           | 0180                  | XX XXXX X--- ----          | 3F80                  | Yes
+| CLRW                | 00 0001 0xxx xxxx           | 0100                  | XX XXXX X--- ----          | 3F80                  | Yes
+| COMF                | 00 1001 dfff ffff           | 0900                  | XX XXXX ---- ----          | 3F00                  | Yes
+| DECF                | 00 0011 dfff ffff           | 0300                  | XX XXXX ---- ----          | 3F00                  | Yes
+| DECFSZ              | 00 1011 dfff ffff           | 0B00                  | XX XXXX ---- ----          | 3F00                  | Yes
+| INCF                | 00 1010 dfff ffff           | 0A00                  | XX XXXX ---- ----          | 3F00                  | Yes
+| INCFSZ              | 00 1111 dfff ffff           | 0F00                  | XX XXXX ---- ----          | 3F00                  | Yes
+| IORWF               | 00 0100 dfff ffff           | 0400                  | XX XXXX ---- ----          | 3F00                  | Yes
+| MOVF                | 00 1000 dfff ffff           | 0800                  | XX XXXX ---- ----          | 3F00                  | Yes
+| MOVWF               | 00 0000 lfff ffff           | 0080                  | XX XXXX X--- ----          | 3F80                  | Yes
+| NOP                 | 00 0000 0xx0 0000           | 0000                  | XX XXXX X--X XXXX          | 3F9F                  | Yes
+| RLF                 | 00 1101 dfff ffff           | 0D00                  | XX XXXX ---- ----          | 3F00                  | Yes	
+| RRF                 | 00 1100 dfff ffff           | 0C00                  | XX XXXX ---- ----          | 3F00                  | Yes
+| SUBWF               | 00 0010 dfff ffff           | 0200                  | XX XXXX ---- ----          | 3F00                  | Yes	
+| SWAPF               | 00 1110 dfff ffff           | 0E00                  | XX XXXX ---- ----          | 3F00                  | Yes
+| XORWF               | 00 0110 dfff ffff           | 0600                  | XX XXXX ---- ----          | 3F00                  | Yes
+| BCF                 | 01 00bb bfff ffff           | 1000                  | XX XX-- ---- ----          | 3C00                  | Yes
+| BSF                 | 01 01bb bfff ffff           | 1400                  | XX XX-- ---- ----          | 3C00                  | Yes
+| BTFSC               | 01 10bb bfff ffff           | 1800                  | XX XX-- ---- ----          | 3C00                  | Yes
+| BTFSS               | 01 11bb bfff ffff           | 1C00                  | XX XX-- ---- ----          | 3C00                  | Yes
+| ADDLW               | 11 111x kkkk kkkk           | 3E00                  | XX XXX- ---- ----          | 3E00                  | Yes
+| ANDLW               | 11 1001 kkkk kkkk           | 3900                  | XX XXXX ---- ----          | 3F00                  | Yes
+| CALL                | 10 0kkk kkkk kkkk           | 2000                  | XX X--- ---- ----          | 3800                  | Yes
+| CLRWDT              | 00 0000 0110 0100           | 0064                  | XX XXXX XXXX XXXX          | 3FFF                  | No
+| GOTO                | 10 1kkk kkkk kkkk           | 2800                  | XX X--- ---- ----          | 3800                  | Yes	
+| IORLW               | 11 1000 kkkk kkkk           | 3800                  | XX XXXX ---- ----          | 3F00                  | Yes
+| MOVLW               | 11 00xx kkkk kkkk           | 3000                  | XX XX-- ---- ----          | 3C00                  | Yes
+| RETFIE              | 00 0000 0000 1001           | 0009                  | XX XXXX XXXX XXXX          | 3FFF                  | No
+| RETLW               | 11 01xx kkkk kkkk           | 3400                  | XX XX-- ---- ----          | 3C00                  | Yes
+| RETURN              | 00 0000 0000 1000           | 0008                  | XX XXXX XXXX XXXX          | 3FFF                  | Yes
+| SLEEP               | 00 0000 0110 0011           | 0063                  | XX XXXX XXXX XXXX          | 3FFF                  | No
+| SUBLW               | 11 110x kkkk kkkk           | 3C00                  | XX XXX- ---- ----          | 3E00                  | Yes
+| XORLW               | 11 1010 kkkk kkkk           | 3A00                  | XX XXXX ---- ----          | 3F00                  | Yes 
