@@ -16,5 +16,5 @@ $(BINDIR)/hexconv: $(OBJ)
 .PHONY: clean	
 
 clean:
-	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 
-	rm -f $(BINDIR)/hexconv
+	$(RM) $(ODIR)/*.o *~ core $(INCDIR)/*~ 
+	$(RM) $(BINDIR)/hexconv

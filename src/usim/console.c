@@ -16,13 +16,22 @@
 // limitations under the License.
 //------------------------------------------------------------------------------
 
+#ifdef linux
 #include <termios.h>
 #include <unistd.h>
+#endif
+
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 #include <stdio.h>
 
 char readKey()
 {
     char returnKey = 0;
+	
+#ifdef linux
     struct termios tterm = {0};
     
     fflush(stdout);
@@ -54,7 +63,28 @@ char readKey()
     if(tcsetattr(0, TCSADRAIN, &tterm) < 0)
     {
         return returnKey;
-    }
+    }	
+#endif
+
+#ifdef _WIN32
+	DWORD termMode, charCount;
+	
+	HANDLE handle = GetStdHandle(STD_INPUT_HANDLE);
+	if(handle == NULL)
+	{
+		return returnKey;
+	}
+	
+	GetConsoleMode(handle, &termMode);
+	SetConsoleMode(handle, (termMode & (~(ENABLE_LINE_INPUT | ENABLE_ECHO_INPUT))));
+	
+	if(!ReadConsole(handle, &returnKey, 1, &charCount, NULL))
+	{
+		return returnKey;
+	}
+	
+	SetConsoleMode(handle, termMode);	
+#endif
         
     return returnKey;
 }

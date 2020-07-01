@@ -16,5 +16,5 @@ $(BINDIR)/usim: $(OBJ)
 .PHONY: clean	
 
 clean:
-	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 
-	rm -f $(BINDIR)/usim
+	$(RM) $(ODIR)/*.o *~ core $(INCDIR)/*~ 
+	$(RM) $(BINDIR)/usim

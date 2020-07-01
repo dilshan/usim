@@ -123,13 +123,13 @@ HEX_PROC_STATUS parseHexLine(char *hexStr, long *addr, unsigned short **data, si
         // Read high byte.
         memcpy(byteData, hexStr + 9 + recPos, 2);
         byteData[2] = '\0';       
-        (*data)[wordCount] += strtol(byteData, NULL, 16);     
+        (*data)[wordCount] = strtol(byteData, NULL, 16);     
         recPos += 2;
         
         // Read low byte.
         memcpy(byteData, hexStr + 9 + recPos, 2);
         byteData[2] = '\0';                 
-        (*data)[wordCount] += strtol(byteData, NULL, 16) << 8;
+        (*data)[wordCount] |= (strtol(byteData, NULL, 16) << 8);
         recPos += 2;
         
         wordCount++;
@@ -166,7 +166,7 @@ unsigned char validateChecksum(unsigned char checkVal, char *data)
     while(pos < dataLen)
     {
         memcpy(byteData, data + pos, 2);
-        byteData[3] = '\0'; 
+        byteData[2] = '\0'; 
         
         checksum += (unsigned char)strtol(byteData, NULL, 16);
         pos += 2;        
