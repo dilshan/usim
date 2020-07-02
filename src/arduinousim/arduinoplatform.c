@@ -17,6 +17,11 @@
 // limitations under the License.
 //------------------------------------------------------------------------------
 
+#if _PLATFORM != ARDUINO_AVR    
+// This file support for Arduino platform(s) only.
+#error Unsupported  platform. Support for Arduino platform(s) only.
+#endif
+
 #include <Arduino.h>
 
 #include "vmmem84.h"

@@ -1,2 +1,4 @@
 /bin/*
 /obj/*
+/samples/ledtest.X/build/
+/samples/ledtest.X/dist/

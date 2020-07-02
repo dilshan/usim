@@ -20,6 +20,11 @@
 #ifndef ARDUINO_TERMINAL_H
 #define ARDUINO_TERMINAL_H
 
+#if _PLATFORM != ARDUINO_AVR    
+// This file support for Arduino platform(s) only.
+#error Unsupported  platform. Support for Arduino platform(s) only.
+#endif
+
 #ifdef _DEBUG_LOG
 #define debugLog(r) Serial.println(r)
 #else
