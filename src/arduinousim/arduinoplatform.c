@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 // USim - Lightweight Microcontroller Simulator.
-// Emulator for Arduino MEGA 2560.
+// Emulator for Arduino platform.
 // 
 // Copyright 2020 Dilshan R Jayakody.
 //
@@ -21,32 +21,69 @@
 
 #include "vmmem84.h"
 
-// PIC and Arduino / ATMEGA 2560 Port Mapping:
+#define READPORT(p,i,d) ((p & d) | (i & (~d)))
+
+#if defined(ARDUINO_AVR_MEGA2560) 
+
+// PIC and Arduino MEGA 2560 / ATMEGA 2560 Port Mapping:
 // 
 // ----------|-------------------------------
 // PIC Port  |   Arduino / ATMEGA 2560 Port
 // ----------|-------------------------------
-// PORT A    |   PORT A
+// PORT A    |   PORT A / PIN A
 // TRIS A    |   DDR A
-// PORT B    |   PORT C
+// PORT B    |   PORT C / PIN C
 // TRIS B    |   DDR C
 // ----------|-------------------------------
+
+#define MAPPING_PORTA PORTA
+#define MAPPING_PORTB PORTC
+
+#define MAPPING_DDRA  DDRA
+#define MAPPING_DDRB  DDRC
+
+#define MAPPING_PINA  PINA
+#define MAPPING_PINB  PINC
+
+#elif defined(ARDUINO_AVR_UNO) 
+
+// PIC and Arduino Uno / ATMEGA 328 Port Mapping:
+// 
+// ----------|-------------------------------
+// PIC Port  |   Arduino / ATMEGA 328 Port
+// ----------|-------------------------------
+// PORT A    |   PORT C / PIN C
+// TRIS A    |   DDR C
+// PORT B    |   PORT D / PIN D
+// TRIS B    |   DDR D
+// ----------|-------------------------------
+
+#define MAPPING_PORTA PORTC
+#define MAPPING_PORTB PORTD
+
+#define MAPPING_DDRA  DDRC
+#define MAPPING_DDRB  DDRD
+
+#define MAPPING_PINA  PINC
+#define MAPPING_PINB  PIND
+
+#endif
 
 void setHardwareRegValue(unsigned char addr, unsigned char val)
 {
     switch(addr)
     {
         case ADDR_PORTA:
-            PORTA = val;
+            MAPPING_PORTA = val;
             break;
         case ADDR_PORTB:
-            PORTC = val;
+            MAPPING_PORTB = val;
             break;
         case ADDR_TRISA:
-            DDRA = ~val;
+            MAPPING_DDRA = ~val;
             break;
         case ADDR_TRISB:
-            DDRC = ~val;
+            MAPPING_DDRB = ~val;
             break;    
     }
 }
@@ -56,13 +93,13 @@ unsigned char getHardwareRegValue(unsigned char addr, unsigned char defaultVal)
     switch(addr)
     {
         case ADDR_PORTA:
-            return PORTA;
+            return READPORT(MAPPING_PORTA, MAPPING_PINA, MAPPING_DDRA);
         case ADDR_PORTB:
-            return PORTC;
+            return READPORT(MAPPING_PORTB, MAPPING_PINB, MAPPING_DDRB);
         case ADDR_TRISA:
-            return ~DDRA;
+            return ~MAPPING_DDRA;
         case ADDR_TRISB:
-            return ~DDRC;   
+            return ~MAPPING_DDRB;   
     }
 
     return defaultVal;

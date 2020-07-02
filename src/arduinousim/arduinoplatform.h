@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 // USim - Lightweight Microcontroller Simulator.
-// Emulator for Arduino MEGA 2560.
+// Emulator for Arduino platform.
 // 
 // Copyright 2020 Dilshan R Jayakody.
 //
@@ -17,13 +17,31 @@
 // limitations under the License.
 //------------------------------------------------------------------------------
 
-#ifndef BUILD_CONFIG_H
-#define BUILD_CONFIG_H
+#ifndef ARDUINO_PLATFORM_H
+#define ARDUINO_PLATFORM_H
 
-#include "builddef.h"
+#if _PLATFORM != ARDUINO_AVR    
+// This file support for Arduino platform(s) only.
+#error Unsupported  platform. Support for Arduino platform(s) only.
+#else 
 
-#define _DEBUG_LOG
+#if defined(ARDUINO_AVR_MEGA2560) 
+#define SD_CS_PIN   53
+#elif defined(ARDUINO_AVR_UNO) 
+#define SD_CS_PIN   10
+#endif
 
-#define _PLATFORM   ARDUINO_MEGA_2560
+#endif
 
-#endif /* BUILD_CONFIG_H */
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+void setHardwareRegValue(unsigned char addr, unsigned char val);
+unsigned char getHardwareRegValue(unsigned char addr, unsigned char defaultVal);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* ARDUINO_PLATFORM_H */

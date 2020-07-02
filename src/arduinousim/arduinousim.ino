@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 // USim - Lightweight Microcontroller Simulator.
-// Emulator for Arduino MEGA 2560.
+// Emulator for Arduino platform.
 // 
 // Copyright 2020 Dilshan R Jayakody.
 //
@@ -21,8 +21,8 @@
 
 #include <SD.h>
 
-#include "arduinoMega2560.h"
-#include "arduino-mega2560-usim.h"
+#include "arduinoplatform.h"
+#include "arduinocommon.h"
 #include "terminal.h"
 
 #include "vmcpu.h"
@@ -37,7 +37,7 @@ void setup()
 {
     bootFlag = BOOT_FAILURE;
 
-    Serial.begin(9600);
+    Serial.begin(SERIAL_BAUD_RATE);
     debugLog(LOG_START_EMULATOR);
 
     // Start reading SD card to detect startup application.

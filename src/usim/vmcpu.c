@@ -22,8 +22,8 @@
 #include "vmmem84.h"
 #include "vmcpuinst.h"
 
-#if _PLATFORM == ARDUINO_MEGA_2560  
-#include "arduinoMega2560.h"
+#if _PLATFORM == ARDUINO_AVR  
+#include "arduinoplatform.h"
 #endif
 
 union DATA_MEM dataMem;
@@ -64,7 +64,7 @@ static inline unsigned char sfrDirectAddr(unsigned char addr)
 
 static inline unsigned char getSfrValue(unsigned char addr)
 {
-#if _PLATFORM == ARDUINO_MEGA_2560  
+#if _PLATFORM == ARDUINO_AVR  
     return getHardwareRegValue(addr, dataMem.map[addr]);
 #else    
     return dataMem.map[addr];
@@ -108,7 +108,7 @@ static inline void setSfrValue(unsigned char addr, unsigned char val)
     {   
         dataMem.map[addr] = val;
 
-#if _PLATFORM == ARDUINO_MEGA_2560
+#if _PLATFORM == ARDUINO_AVR
         setHardwareRegValue(addr, val);
 #endif
 

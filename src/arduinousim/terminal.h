@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 // USim - Lightweight Microcontroller Simulator.
-// Emulator for Arduino MEGA 2560.
+// Emulator for Arduino platform.
 // 
 // Copyright 2020 Dilshan R Jayakody.
 //
@@ -26,7 +26,7 @@
 #define debugLog(r)
 #endif
 
-#define LOG_START_EMULATOR  "Starting USim Emulator for Arduino Mega 2560"
+#define LOG_START_EMULATOR  "Starting USim Emulator for Arduino"
 #define LOG_SD_INIT_FAIL    "Fail to initialize SD card"
 #define LOG_FILE_NOT_FOUND  "Boot file not found"
 

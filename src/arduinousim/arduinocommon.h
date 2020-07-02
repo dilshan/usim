@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 // USim - Lightweight Microcontroller Simulator.
-// Emulator for Arduino MEGA 2560.
+// Emulator for Arduino platform.
 // 
 // Copyright 2020 Dilshan R Jayakody.
 //
@@ -17,12 +17,14 @@
 // limitations under the License.
 //------------------------------------------------------------------------------
 
-#ifndef ARDUINO_MEGA_USIM_H
-#define ARDUINO_MEGA_USIM_H
+#ifndef ARDUINO_COMMON_H
+#define ARDUINO_COMMON_H
 
 #define BOOT_FILE   "usimboot.bin"
+
+#define SERIAL_BAUD_RATE  9600
 
 #define BOOT_SUCCESS    1
 #define BOOT_FAILURE    0
 
-#endif /* ARDUINO_MEGA_USIM_H */
+#endif /* ARDUINO_COMMON_H */

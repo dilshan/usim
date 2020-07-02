@@ -1,6 +1,5 @@
 //------------------------------------------------------------------------------
 // USim - Lightweight Microcontroller Simulator.
-// Emulator for Arduino MEGA 2560.
 // 
 // Copyright 2020 Dilshan R Jayakody.
 //
@@ -21,6 +20,6 @@
 #define BUILD_DEFINITIONS_H
 
 #define PC_EMULATION        10
-#define ARDUINO_MEGA_2560   20
+#define ARDUINO_AVR         20
 
 #endif /* BUILD_DEFINITIONS_H */
