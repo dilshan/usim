@@ -11,4 +11,4 @@ addons:
 install:
 - "[ $CXX = g++ ] && export CXX=g++-9 || true"
 script:
-  - build.sh
+  - bash build.sh
