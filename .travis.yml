@@ -1,0 +1,14 @@
+sudo: false
+language: cpp
+compiler:
+  - gcc
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-9
+install:
+- "[ $CXX = g++ ] && export CXX=g++-9 || true"
+script:
+  - build.sh
