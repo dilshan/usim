@@ -11,5 +11,5 @@ Lightweight Microcontroller Simulator
 
 To maintain extendability this simulator provides CPU and ALU functionalities only. All the device-specific features and peripherals are not available with this simulator. 
 
-μSim is an open-source project. All it's source codes and documentation files are available in this repository.
+μSim is an open-source project. All it's source codes and [documentation](https://github.com/dilshan/usim/wiki) files are available in this repository.
 
