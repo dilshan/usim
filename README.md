@@ -1,4 +1,8 @@
 [![Build Status](https://travis-ci.org/dilshan/usim.svg?branch=master)](https://travis-ci.org/dilshan/usim)
+[![GitHub license](https://img.shields.io/github/license/dilshan/usim)](https://github.com/dilshan/usim/blob/master/LICENSE)
+![Linux](https://img.shields.io/badge/platform-linux-blue)
+![Windows](https://img.shields.io/badge/platform-windows-blue)
+![Arduino](https://img.shields.io/badge/platform-arduino-orange)
 
 Lightweight Microcontroller Simulator
 =====================================
